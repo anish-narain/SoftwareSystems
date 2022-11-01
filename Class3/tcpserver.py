@@ -22,9 +22,14 @@ while True:
     #this is because the 'to' part is now implicit in the connection_socket
     cmsg = connection_socket.recv(1024)  	
     cmsg = cmsg.decode()
+    '''
     if(cmsg.isalnum() == False):
         cmsg = "Not alphanumeric.";
     else:
         cmsg = "Alphanumeric";
+    '''
+
+    cmsg = 'Client says: ' + cmsg
+    
     connection_socket.send(cmsg.encode())
 

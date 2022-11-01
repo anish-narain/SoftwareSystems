@@ -18,7 +18,9 @@ print("TCP client running...")
 print("Connecting to server at IP: ", server_name, " PORT: ", server_port)
 
 #take input from the user
-msg = input("Enter a string to test if it is alphanumeric: ");
+#msg = input("Enter a string to test if it is alphanumeric: ");
+
+msg = input('Enter your message: ')
 
 #send the message  to the udp server
 client_socket.send(msg.encode())
