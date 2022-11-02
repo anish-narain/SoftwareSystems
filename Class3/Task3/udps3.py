@@ -9,7 +9,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #bind the server to the localhost at port server_port
 #server_socket.bind(('146.169.170.165',server_port))
 
-#bind the server to the Michael Chung's computer at port server_port
+#'' means local host
 server_socket.bind(('',server_port))
 
 print('UDP Server running on port ', server_port)
@@ -22,10 +22,11 @@ while True:
     #cadd below is the client process address
     cmsg, cadd = server_socket.recvfrom(2048)
     cmsg = cmsg.decode()
-    if(cmsg.isalnum()==False):
-        cmsg = "Not alphanumeric."
-    else:
-        cmsg = "Alphanumeric."
+
+    if cadd[1] == 11000:
+        print('C1 says: ' + cmsg)
+    if cadd[1] == 13000:
+        print('C2 says: ' + cmsg)
 
 
     #send reply message to the client process            
